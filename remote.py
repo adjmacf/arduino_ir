@@ -2,6 +2,7 @@
 import usb.core
 import usb.util
 import sys
+import array
 
 # find our device
 dev = usb.core.find(idVendor=0x0403, idProduct=0x6001)
@@ -9,3 +10,15 @@ dev = usb.core.find(idVendor=0x0403, idProduct=0x6001)
 # if it is there
 if dev is None:
     raise ValueError("Device not found!")
+
+interface = 0
+endpoint = dev[0][(0,0)][0]
+
+if dev.is_kernel_driver_active(interface) is True:
+    dev.detach_kernel_driver(interface)
+    usb.util.claim_interface(dev, interface)
+
+while True:
+    x = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
+    if x != array.array("B", [1, 96]):
+        print(x)
