@@ -21,6 +21,8 @@ if dev.is_kernel_driver_active(interface) is True:
 
 while True:
     x = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
-    if x == array.array("B", [1, 96, 112]):
+    #if x != array.array("B", [1, 96]):
+    #    print(x)
+    if x == array.array("B", [1, 112, 0]):
         os.system("xdotool key space")
         print("button hit")
