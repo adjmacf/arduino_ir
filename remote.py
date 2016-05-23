@@ -4,6 +4,7 @@ import usb.util
 import sys
 import array
 import os
+import time
 
 # find our device
 dev = usb.core.find(idVendor=0x0403, idProduct=0x6001)
@@ -26,3 +27,5 @@ while True:
     if x == array.array("B", [1, 112, 0]):
         os.system("xdotool key space")
         print("button hit")
+        
+    time.sleep(0.1)
