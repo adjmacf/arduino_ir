@@ -20,6 +20,7 @@ if dev.is_kernel_driver_active(interface) is True:
     dev.detach_kernel_driver(interface)
     usb.util.claim_interface(dev, interface)
 
+# continually read data - when we recieve the character "p" send space keystroke
 while True:
     x = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
     #if x != array.array("B", [1, 96]):
