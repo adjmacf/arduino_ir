@@ -25,7 +25,7 @@ while True:
     x = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
     #if x != array.array("B", [1, 96]):
     #    print(x)
-    if x == array.array("B", [1, 112, 0]):
+    if x == array.array("B", [1, 96, 0, 0]):
         os.system("xdotool key space")
         print("button hit")
         
