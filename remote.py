@@ -23,8 +23,8 @@ if dev.is_kernel_driver_active(interface) is True:
 # continually read data - when we recieve the character "p" send space keystroke
 while True:
     x = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
-    if x != array.array("B", [1, 96]):
-        print(x)
+   # if x != array.array("B", [1, 96]):
+   #     print(x)
 
     if x == array.array("B", [1, 96, 112]):
         os.system("xdotool key space")
@@ -39,7 +39,7 @@ while True:
         os.system("xdotool key Down")
 
     # if we detect left
-    elif x == arrray.array("B", [1, 96, 108]):
+    elif x == array.array("B", [1, 96, 108]):
         os.system("xdotool key Left")
 
     # if we detect right

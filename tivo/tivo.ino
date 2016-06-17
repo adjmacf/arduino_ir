@@ -35,6 +35,7 @@ void loop() {
     Serial.print("d");
   }
 
+  // if we detect up
   else if (results.value == 0xA10C2807) {
     Serial.print("u");
   }
