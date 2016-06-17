@@ -50,4 +50,4 @@ while True:
     elif x == array.array("B", [1, 96, 115]):
         os.system("xdotool key Return")
         
-    time.sleep(0.1)
+    time.sleep(0.01)
