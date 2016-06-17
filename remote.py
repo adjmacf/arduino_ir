@@ -25,8 +25,29 @@ while True:
     x = dev.read(endpoint.bEndpointAddress, endpoint.wMaxPacketSize)
     if x != array.array("B", [1, 96]):
         print(x)
-    if x == array.array("B", [1, 96, 0, 0]):
+
+    if x == array.array("B", [1, 96, 112]):
         os.system("xdotool key space")
-        print("button hit")
+        #print("button hit")
+
+    # if we detect u char for up
+    elif x == array.array("B", [1, 96, 117]):
+        os.system("xdotool key Up")
+
+    # if we detect d char for down
+    elif x == array.array("B", [1, 96, 100]):
+        os.system("xdotool key Down")
+
+    # if we detect left
+    elif x == arrray.array("B", [1, 96, 108]):
+        os.system("xdotool key Left")
+
+    # if we detect right
+    elif x == array.array("B", [1, 96, 114]):
+        os.system("xdotool key Right")
+
+    # if we detect select
+    elif x == array.array("B", [1, 96, 115]):
+        os.system("xdotool key Return")
         
     time.sleep(0.1)

@@ -17,31 +17,31 @@ void loop() {
   if (irrecv.decode(&results)) {
    // if we detect pause or play
    if (results.value == 0xA10CC40B || results.value == 0xA10C840B) {
-     Serial.write("p");
+     Serial.print("p");
    }
 
   // if we detect fast forward
   else if (results.value == 0xA10C240B || results.value == 0xA10CA807) {
-     Serial.write("r");
+     Serial.print("r");
    }
 
   // if we detect rewind
   else if (results.value == 0xA10C440B || results.value == 0xA10CE807) {
-     Serial.write("l");
+     Serial.print("l");
    }
 
   // if we detect channel down
   else if (results.value == 0xA10C6807) {
-    Serial.write("d");
+    Serial.print("d");
   }
 
   else if (results.value == 0xA10C2807) {
-    Serial.write("u");
+    Serial.print("u");
   }
   
   // if we detect select
   else if (results.value == 0xA10C9807) {
-    Serial.write("s");
+    Serial.print("s");
   }
    
    irrecv.resume();
