@@ -28,41 +28,36 @@ void loop() {
 
    // if we detect pause or play
    if (results.value == 0xA10CC40B || results.value == 0xA10C840B) {
-     last_ir = results;
      Serial.print("p");
      delay(100);
    }
 
   // if we detect fast forward
   else if (results.value == 0xA10C240B || results.value == 0xA10CA807) {
-     last_ir = results;
      Serial.print("r");
    }
 
   // if we detect rewind
   else if (results.value == 0xA10C440B || results.value == 0xA10CE807) {
-     last_ir = results;
      Serial.print("l");
    }
 
   // if we detect channel down
   else if (results.value == 0xA10C6807) {
-    last_ir = results;
     Serial.print("d");
   }
 
   // if we detect up
   else if (results.value == 0xA10C2807) {
-    last_ir = results;
     Serial.print("u");
   }
   
   // if we detect select
   else if (results.value == 0xA10C9807) {
-    last_ir = results;
     Serial.print("s");
   }
-   
+
+   last_ir = results;
    irrecv.resume();
   }
 }
