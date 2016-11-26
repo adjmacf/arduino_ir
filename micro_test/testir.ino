@@ -4,7 +4,7 @@
 #include <IRremoteInt.h>
 
 
-const int RECV_PIN = 9;
+const int RECV_PIN = 6;
 IRrecv irrecv(RECV_PIN);
 decode_results results;
 
@@ -13,8 +13,8 @@ void setup() {
   pinMode(13, OUTPUT);
   pinMode(8, OUTPUT);
   pinMode(7, OUTPUT);
-  digitalWrite(8, LOW);
-  digitalWrite(7, HIGH);
+  digitalWrite(8, HIGH);
+  digitalWrite(7, LOW);
   Keyboard.begin();
   irrecv.enableIRIn();  // start the reciever 
 
