@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+"""
+This script is to be run on the host computer to listen to any Aruino Uno Serial messages
+"""
+
 import usb.core
 import usb.util
 import sys
