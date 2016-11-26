@@ -17,7 +17,7 @@ void setup() {
 void loop() {
   if (irrecv.decode(&results)) {
 
-    // if we recieve repeat code just change results to last used value unless it's somethings that we don't want to repeat a bunch
+    // if we recieve repeat code just change results to last used value unless it's somethings that we don't want to repeat
     // this is a bit of a hack and is kind of ugly
     if (results.value == 0xFFFFFFFF && 
         last_ir.value != 0xA10CC40B && 
